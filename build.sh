@@ -21,8 +21,8 @@ $BUILD_TOOLS/aapt2 link  -o base.apk \
     -I $PLATFORM/android.jar \
     --min-sdk-version 29
 
-cp base.apk app.apk
-zip -uj app.apk dex/classes.dex
+cp base.apk unaligned-app.apk
+zip -uj unaligned-app.apk dex/classes.dex
 
-$BUILD_TOOLS/zipalign -f 4 app.apk app-aligned.apk
-$BUILD_TOOLS/apksigner sign --ks debug.keystore --ks-pass pass:android app-aligned.apk
+$BUILD_TOOLS/zipalign -f 4 unaligned-app.apk app.apk
+$BUILD_TOOLS/apksigner sign --ks debug.keystore --ks-pass pass:android app.apk
