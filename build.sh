@@ -5,7 +5,7 @@ SDK=~/android_sdk
 PLATFORM=$SDK/platforms/android-29
 BUILD_TOOLS=$SDK/build-tools/29.0.3
 
-kotlinc MainActivity.kt -d classes/ \
+kotlinc src/*.kt -d classes/ \
     -cp $PLATFORM/android.jar \
     -include-runtime
 
